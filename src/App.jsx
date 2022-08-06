@@ -10,7 +10,7 @@ function App() {
     const [calc, setCalc] = useState("");
     const [result, setResult] = useState("");
     const [history, setHistory] = useState([]);
-    const [showHistory, setShowHistory] = useState(false)
+    const [showHistory, setShowHistory] = useState(false);
 
     calc.length === 0 && setCalc("0");
     result.length === 0 && setResult("0");
@@ -38,7 +38,7 @@ function App() {
         let result = eval(calc);
         setResult(calc);
         setCalc(result.toString());
-        setHistory([...history, {calc: calc, result: result}])
+        setHistory([...history, { calc: calc, result: result }]);
     }
 
     function deleteBack() {
@@ -59,16 +59,16 @@ function App() {
     }
 
     function resetHistory() {
-        setHistory([])
+        setHistory([]);
     }
 
     function handleShowHistory() {
-        setShowHistory(prevShowHistory => !prevShowHistory)
+        setShowHistory((prevShowHistory) => !prevShowHistory);
     }
 
     function historyToCalc(calc, result) {
-        setCalc(result.toString())
-        setResult(calc.toString())
+        setCalc(result.toString());
+        setResult(calc.toString());
     }
 
     return (
@@ -77,9 +77,10 @@ function App() {
                 <div className='calc-screen'>
                     <div className='calc-operation'>{result}</div>
                     <div className='calc-typed'>{calc}</div>
-                    <div className='show-history-button'>
-                        <FaHistory onClick={handleShowHistory}/>
-                    </div>
+                    <FaHistory
+                        onClick={handleShowHistory}
+                        className='show-history-button'
+                    />
                 </div>
                 <History
                     history={history}
@@ -87,7 +88,6 @@ function App() {
                     showHistory={showHistory}
                     historyToCalc={historyToCalc}
                 />
-                <div className="all-button-container">
                 <div className='calc-button-row'>
                     <div
                         className='button c'
@@ -252,7 +252,6 @@ function App() {
                     >
                         =
                     </div>
-                </div>
                 </div>
             </div>
         </div>
