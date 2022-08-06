@@ -67,8 +67,8 @@ function App() {
     }
 
     function historyToCalc(calc, result) {
-        setCalc(result)
-        setResult(calc)
+        setCalc(result.toString())
+        setResult(calc.toString())
     }
 
     return (
